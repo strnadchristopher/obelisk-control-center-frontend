@@ -1,0 +1,314 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width:100%;
+  box-sizing: border-box;
+  overflow-x:hidden;
+  /* Make a variable for colors for bg, fg, accent-1, accent-2 */
+  --bg: #0d1b2a;
+  --fg: #e0e1dd;
+  --accent-1: #1b263b;
+  --accent-2: #415a77;
+  --accent-3: #778da9;
+  --accent-4: #B0FE76;
+  --accent-5: #DB504A;
+  font-family: Gotham Rounded Medium, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: Gotham Rounded Medium;
+  src: url('../public/fonts/Gotham.otf');
+}
+
+
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-1) var(--bg);
+  }
+}
+
+h1{
+  background-color: var(--accent-1);
+  padding:.5em;
+  border-radius: 15px;
+  width:auto;
+  width:500px;
+  max-width:50vw;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  font-size: .5em;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: none;
+  background:none;
+  border: 2px solid var(--fg);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+  margin-right:4%;
+  margin-bottom:1em;
+  margin-left:0;
+}
+button:hover {
+  border-color: var(--accent-4);
+  background-color: var(--accent-2);
+  color: var(--fg);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.ModalColumn{
+  height:100%;
+  width:18vw;
+  min-width:600px;
+  max-width:95vw;
+  display:inline-block;
+  margin:1em;
+  box-sizing: border-box;
+  /* Make sure that model columns are both at the top even if height is not the same */
+  vertical-align: top;
+  margin:0;
+}
+
+.modal{
+  text-align: left;
+  /* Make background a nice color that is a little darker than the bg */
+  background: var(--accent-1);
+
+  padding: 1em;
+  border-radius: 0.5em;
+
+  /* Make the modal 4:3 and responsive */
+  max-width:100%;
+  margin:1em;
+  box-sizing: border-box;
+  position:relative;
+
+  /* Give all modals a nice material design drop shadow */
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, height 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.modal a, .modal a:hover, .modal a:visited{
+  color: #e0e1dd;
+}
+
+.modal.expanded{
+  min-height:25vh;
+}
+
+.modal.disabled{
+  color:grey;
+}
+
+.modal.disabled:hover{
+  color:grey;
+  background: #030406;
+  color: grey;
+  transform: scale(1);
+  cursor: not-allowed;
+}
+
+.modal-content{
+  height:auto;
+  margin:auto;
+}
+
+.modal-content h2{
+  margin:0;
+  text-decoration: underline;
+}
+
+.InfoModal{
+
+}
+
+.ActionModal, .AppModal{
+  display:inline-flex;
+  justify-content:center;
+  align-items: center;
+  cursor:pointer;
+  width:auto;
+  min-width:25%;
+  justify-content: space-evenly;
+  width:auto;
+  box-sizing: border-box;
+  color: var(--fg);
+}
+
+.AppModal:visited{
+  color: #e0e1dd;
+  color: var(--fg);
+}
+
+.ActionModal:hover, .AppModal:hover{
+  /* Make the drop shadow change so it looks like its hovering higher */
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  background: var(--accent-2);
+  color: var(--fg);
+}
+
+.ActionModal:active, .AppModal:active{
+  transform: scale(0.9);
+}
+
+
+
+.glowing-dot {
+  width: 10px;  /* Set the size of the dot */
+  height: 10px;
+  background-color: var(--accent-4);  /* Dot color */
+  border-radius: 50%;  /* Make it a circle */
+  box-shadow: 0 0 10px var(--accent-4), 0 0 20px var(--accent-4), 0 0 30px var(--accent-4);  /* Glowing effect */
+  animation: pulse-green 1.5s infinite;  /* Optional: Add a pulse animation */
+  position:absolute;
+  top:10px;
+  right:10px;
+  transition:background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.glowing-dot.red{
+  background-color: var(--accent-5);
+  box-shadow: 0 0 10px var(--accent-5), 0 0 20px var(--accent-5), 0 0 30px var(--accent-5);
+  animation: none;
+}
+
+.AppIcon{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.OutputTextArea{
+  /* This holds the journalctl output of the given service, make sure its always auto scrolled to the bottom, and the full width of the modal */
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  white-space: pre-wrap;
+  padding:1em;
+  box-sizing: border-box;
+  min-height:25vh;
+  background:none;
+}
+
+.DiskBar{
+  height:10px;
+  border-radius: 15px;
+  overflow:hidden;
+  background-color: var(--accent-3);
+  /* Inner box shadow for some flair */
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.DiskBarFill{
+  height:100%;
+  background-color: var(--accent-2);
+  border-radius: 15px;
+  /* Inner box shadow for some flair */
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  transition: width 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.RedFill{
+  background-color: var(--accent-5);
+}
+
+li p{
+  max-width:100%;
+  text-wrap: ellipsis;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 10px var(--accent-5), 0 0 20px var(--accent-5), 0 0 30px var(--accent-5);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-5), 0 0 30px var(--accent-5), 0 0 40px var(--accent-5);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--accent-5), 0 0 20px var(--accent-5), 0 0 30px var(--accent-5);
+  }
+}
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 10px var(--accent-4), 0 0 20px var(--accent-4), 0 0 30px var(--accent-4);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-4), 0 0 30px var(--accent-4), 0 0 40px var(--accent-4);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--accent-4), 0 0 20px var(--accent-4), 0 0 30px var(--accent-4);
+  }
+}
+
+/* In portrait, min width for modal column is 100vw */
+@media (orientation: portrait) {
+  .ModalColumn{
+    min-width:90vw;
+  }
+  h1{
+    max-width:80vw;
+    margin-left: auto;
+    margin-right:auto;
+    box-sizing: border-box;
+    padding: .5em;
+    font-size: 2em !important;
+  }
+}
